@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular IMC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="fundo">
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">O que é IMC?</a></li>
+                <li><a href="#calculadora">calculadora</a></li>
+                <li><a href="#duvida">O que significam esses números?</a></li>
+                <li><button class="button" onclick="mudarTema()">mudar cor</button></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <h1 class="texto">Índice de Massa Corporal</h1>
+
+    <main>
+        <h2 id="inicio" class="texto">O que é o IMC?</h2>
+        <p id="texto">A fórmula do Índice de Massa Corporal foi criada por um matemático belga chamado Lambert Quételet, no século
+            19. Na época, ela ganhou o nome de “Índice de Quételet”, mas, décadas mais tarde, a Organização Mundial da
+            Saúde atribuiu o nome que conhecemos atualmente.
+
+            O cálculo é muito útil para identificar se o indivíduo está com o peso ideal ou se está abaixo ou acima do
+            esperado, levando em conta critérios como sobrepeso, obesidade e desnutrição.
+
+            Apesar de ser fácil de calcular, sendo acessível a qualquer pessoa, é importante ter cautela e só tirar
+            conclusões a partir de uma consulta com um profissional da saúde. O endocrinologista e o nutricionista são
+            os profissionais mais capacitados para avaliar o IMC e explicar ao paciente como está sua saúde.</p>
+
+
+
+        <div class="container" id="calculadora">
+
+            <label for="altura">Altura:</label>
+            <input type="number" name="altura" id="altura">
+
+            <label for="peso">Peso (kg):</label>
+            <input type="number" name="peso" id="peso">
+
+            <button onclick="calcImc()" class="button">Calcular IMC</button>
+            <p>Seu índice de massa corporal é: <span id="resultado"></span></p>
+        </div>
+
+
+
+        <p id="duvida">Mas o que significa esse número? É preciso olhar para a tabela de resultados. Ela vai permitir
+            compreender em
+            qual classificação a pessoa se encontra:</p>
+
+
+        <div class="lista">
+            <ul id="titulo" class="texto">
+                <li> 16 a 16,9kg/m²: muito abaixo do peso</li>
+                <li> 17 a 18,4kg/m²: abaixo do peso</li>
+                <li>18,5 a 24,9kg/m²: peso normal</li>
+                <li>25 a 29,9kg/m²: acima do peso</li>
+                <li> 30 a 34,9kg/m²: obesidade grau I</li>
+                <li>35 a 40kg/m²: obesidade grau II</li>
+                <li>maior que 40kg/m²: obesidade grau III</li>
+            </ul>
+
+        </div>
+
+
+    </main>
+
+    <footer>
+        <p>&copy;Francisco Ianiak Raupp 2024</p>
+    </footer>
+
+    <script>
+        function calcImc() {
+            const altura = document.getElementById("altura").value;
+            const peso = document.getElementById("peso").value;
+            const resultado = peso / (altura ** 2);
+
+            document.getElementById("resultado").textContent = resultado.toFixed(2);
+        }
+
+        function mudarTema() {            
+            const fundo = document.getElementById("fundo")
+            fundo.style.backgroundColor = fundo.style.backgroundColor === "white" ? "gray" : "white";
+
+
+        }
+    </script>
+</body>
+
+</html>
